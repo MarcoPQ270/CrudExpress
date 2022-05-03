@@ -15,8 +15,8 @@ let Employee = function (employee) {
   this.updated_at = new Date()
 }
 
-Employee.create = function (newEmp, result) {
-  dbConn.query("INSERT INTO employees set ?", newEmp, function (err, res) {
+Employee.create = (newEmp, result) => {
+  dbConn.query("INSERT INTO employees set ?", newEmp, (err, res) => {
     if (err) {
       console.log("error: ", err)
       result(err, null)
@@ -28,8 +28,8 @@ Employee.create = function (newEmp, result) {
   })
 }
 
-Employee.findById = function (id, result) {
-  dbConn.query("Select * from employees where id = ? ", id, function (err, res) {
+Employee.findById = (id, result) => {
+  dbConn.query("Select * from employees where id = ? ", id, (err, res) => {
     if (err) {
       console.log("error: ", err)
       result(err, null)
@@ -41,12 +41,12 @@ Employee.findById = function (id, result) {
 }
 
 Employee.findAll = result => {
-  dbConn.query("Select * from employees", function (err, res) {
+  dbConn.query("Select * from employees", (err, res) => {
     err ? result(null, err) : result(null, res)
   })
 }
 
-Employee.update = function (id, employee, result) {
+Employee.update = (id, employee, result) => {
   dbConn.query("UPDATE employees SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [employee.first_name, employee.last_name, employee.email, employee.phone, employee.organization, employee.designation, employee.salary, id], function (err, res) {
     if (err) {
       console.log("error: ", err)
@@ -54,11 +54,11 @@ Employee.update = function (id, employee, result) {
     } else {
       result(null, res)
     }
-  });
-};
+  })
+}
 
-Employee.delete = function (id, result) {
-  dbConn.query("DELETE FROM employees WHERE id = ?", [id], function (err, res) {
+Employee.delete = (id, result) => {
+  dbConn.query("DELETE FROM employees WHERE id = ?", [id], (err, res) => {
     if (err) {
       console.log("error: ", err)
       result(null, err)
@@ -66,6 +66,6 @@ Employee.delete = function (id, result) {
     else {
       result(null, res)
     }
-  });
-};
+  })
+}
 module.exports = Employee
