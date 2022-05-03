@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 
 /* definir una ruta raíz */
 app.get('/', (req, res) => {
-  res.send("Hello World")
+  res.send("Hola Mundo, ejecutando... EXPRESS")
 })
 
 /* Requerir rutas de empleados */
@@ -26,5 +26,16 @@ app.use('/api/v1/employees', employeeRoutes)
 
 /* escuchar solicitudes */
 app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`)
+  console.log(`Servidor corriendo en el puerto ${port}`)
 })
+
+/* API END POINTS */
+
+/* 
+GET /api/v1/employees: Traera a todos los empleados almacenados en la base de datos.
+GET /api/v1/employees/<employee_id>: Traera a un empleado específico con employee_id.
+POST /api/v1/employees : Crea un empleado
+PATCH /api/v1/employees/<employee_id>: Actualizar un empleado parcialmente
+DELETE /api/v1/employees/<employee_id>: Elimina un empleado
+PUT /api/v1/employees/<employee_id>: Actualizar a un empleado completamente
+*/
