@@ -1,7 +1,7 @@
 'use strict'
 const Employee = require('../models/employee.model')
 
-/* Trae todos lo empleados */
+/* Trae todos los empleados */
 exports.findAll = (req, res) => {
   Employee.findAll((err, employee) => {
     console.log('controller get todos')

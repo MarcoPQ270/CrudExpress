@@ -24,7 +24,13 @@ const employeeRoutes = require('./src/routes/employee.routes')
 /* usando como middleware */
 app.use('/api/v1/employees', employeeRoutes)
 
-/* escuchar solicitudes */
+/* Requerir rutas de empleados */
+const productsRoutes = require('./src/routes/products.routes')
+
+/* usando como middleware */
+app.use('/api/v1/products', productsRoutes)
+
+/* escuchando solicitudes */
 app.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`)
 })
@@ -35,7 +41,14 @@ app.listen(port, () => {
 GET /api/v1/employees: Traera a todos los empleados almacenados en la base de datos.
 GET /api/v1/employees/<employee_id>: Traera a un empleado específico con employee_id.
 POST /api/v1/employees : Crea un empleado
-PATCH /api/v1/employees/<employee_id>: Actualizar un empleado parcialmente
 DELETE /api/v1/employees/<employee_id>: Elimina un empleado
 PUT /api/v1/employees/<employee_id>: Actualizar a un empleado completamente
+*/
+
+/* 
+GET /api/v1/products: Traera a todos los empleados almacenados en la base de datos.
+GET /api/v1/products/<products_id>: Traera a un empleado específico con products_id.
+POST /api/v1/products : Crea un empleado
+DELETE /api/v1/products/<products_id>: Elimina un products
+PUT /api/v1/products/<products_id>: Actualizar a un products completamente
 */
