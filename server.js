@@ -1,11 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
+
+
 
 /* crear aplicación express */
 const app = express()
 
 /* Configuración del puerto del servidor */
 const port = process.env.PORT || 5000
+
+app.use(cors())
 
 /* analizar solicitudes de tipo de contenido - application/x-www-form-urlencoded */
 app.use(bodyParser.urlencoded({ extended: true }))
